@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         .img-rounded {
             object-fit: cover;
@@ -100,7 +102,7 @@
                     <a target="_blank" href="https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_c.jpg"><img class='img-rounded' src='https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_m.jpg' height='230px'></a></div>`);
                     return ph;
                 })
-                .then(photos => {photosArray=photos;showImg(photos, 1);});
+                .then(photos => { photosArray = photos; showImg(photos, 1); });
         }
         function getFormData() {
             showLoding();
