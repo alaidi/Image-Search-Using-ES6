@@ -113,9 +113,10 @@
                 fetch(url).then(data => data.json()).then(data => searchGen.next(data));
             }
             function* steps() {
-                var name = document.getElementById('location').value;
+                var name = document.getElementById('location').value.split(' ').join('+');
+                console.log(name);
                 showLoding();
-                const maps = yield ajex(`https://maps.googleapis.com/maps/api/geocode/json?address=${name}`);
+                const maps = yield ajex(`https://maps.googleapis.com/maps/api/geocode/json?address=${name}&key=AIzaSyDmearvO3saBo_cqI2rVhNae-MkN0x9qq8`);
                 const cityLocation = maps.results[0].geometry.location;
                 const flickr = yield ajex(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=05bb8643aee89d2c2fd827fdf2c48828&lat=${cityLocation.lat}&lon=${cityLocation.lng}&format=json&nojsoncallback=1`);
                 photosArray = flickr.photos.photo.map(photo => `<div class="col-md-6" style="width: 240px;height: 300px;">
